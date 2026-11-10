@@ -4,6 +4,8 @@
 
 It changes the environment, not the code. Take the bug the agent shipped, the file it needed twenty [tool calls](https://www.aihero.dev/ai-coding-dictionary/tool-call) to find, or the rule the reviewer missed. `retro` does not fix any of them directly. It asks what in the repo let them happen, and proposes the check, pointer, or standard that prevents them next time. It also only proposes. Nothing changes until you pick a candidate.
 
+The retrospective now considers [UB Mode's original Practice and quality-gate principles](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md) when recommending context, Git-hygiene, or automated-check improvements; it does not override the working branch policy.
+
 ## When to reach for it
 
 You invoke this by typing `/retro`, and the agent won't reach for it on its own.
