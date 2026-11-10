@@ -4,7 +4,7 @@
 
 It reads the tickets as a **task graph**, not a list. Blocking edges decide what can start, so at any moment there is a **frontier** of tickets whose blockers have all landed, and every ticket on the frontier runs at once. That is the difference from working the tickets one by one. The graph's shape sets the pace, not the tickets' order on the tracker.
 
-Each ticket implementer also reads the preserved [UB Mode source](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md) for engineering discipline. The integration branch, worktree cleanup, merges, and PRs stay under this skill's control.
+Each ticket implementer also reads the preserved [UB Mode source](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) for engineering discipline. The integration branch, worktree cleanup, merges, and PRs stay under this skill's control.
 
 ## When to reach for it
 
