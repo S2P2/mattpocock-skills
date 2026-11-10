@@ -10,6 +10,7 @@ index, not a replacement or summary of its content.
 
 | Original heading | Workflow stage that reads it |
 | --- | --- |
+| ub-mode | Source document preserved verbatim; flow mapped below |
 | First Make it Work | implement; implement-spec implementers |
 | Laziness Protocol | implement; implement-spec implementers |
 | Foundational Thinking | implement; implement-spec implementers |
