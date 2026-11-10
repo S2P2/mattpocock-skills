@@ -1,6 +1,11 @@
 ---
 name: code-review
 description: "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\"."
+metadata:
+  ub_mode_source: "https://github.com/unclebob/ub-mode"
+  ub_mode_commit: "3da62bf3fcfd2034de41f30d920d2739e566171f"
+  ub_mode_license: "MIT"
+  ub_mode_change_log: "docs/agents/ub-mode-integration.md"
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
@@ -8,7 +13,7 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 - **Standards**: does the code conform to this repo's documented coding standards?
 - **Spec**: does the code faithfully implement the originating issue / spec?
 
-Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings. Start every sub-agent with a fresh context window.
+Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings. Start every sub-agent with a fresh context window. If the repository has opted into quality gates, a third **tool-execution** sub-agent runs alongside them; this is not a third subjective review axis.
 
 The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
 
@@ -55,9 +60,15 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 - **Middle Man**: a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest**: a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
+### 3a. Check whether quality gates are configured
+
+Look for `docs/agents/quality-gates.md` in the **target repository**. Spawn a Quality Gates sub-agent only if the file exists, explicitly enables at least one gate, and provides verified project-owned commands. Do not use this skill's instructions as evidence the project is configured. Do not install tools during review.
+
+When configured, pass the quality worker the same fixed point and diff scope as the other reviewers, the target repo's `docs/agents/quality-gates.md`, and [QUALITY-GATES.md](QUALITY-GATES.md). The worker reads the reference; the parent does not preload it. The worker applies its risk and runtime budget policy, isolates commands with possible filesystem side effects, and reports measured results or explicit not-run reasons. A missing configuration means no quality worker and no extra skill text to load.
+
 ### 4. Spawn both sub-agents in parallel
 
-Issue both sub-agent calls together, in the foreground, and aggregate the reports they return.
+Issue Standards and Spec sub-agent calls together, in the foreground, and include the optional Quality Gates sub-agent in the same batch when configured. Aggregate the reports they return. Instruct every sub-agent not to invoke `code-review` or spawn further agents.
 
 **Standards sub-agent prompt** should include:
 
@@ -73,9 +84,13 @@ Issue both sub-agent calls together, in the foreground, and aggregate the report
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report.
 
+**Quality Gates sub-agent prompt**, only when configured, should include:
+- The fixed point, changed file list, the target repository's gate configuration path, and the path to [QUALITY-GATES.md](QUALITY-GATES.md).
+- The brief: "Do not delegate or spawn agents. Verify configured commands and baseline; run Crapper and Dryer in the agreed scope. Use risk and cost criteria to decide whether targeted Mutator is worth running. Do not install tools or change tracked files. Record command, scope, threshold, outcome, runtime, and supporting artifact for each gate. Mark unavailable, out-of-scope, budget-exceeded, and skipped gates as not run with reasons. Under 400 words."
+
 ### 5. Aggregate
 
-Present the two reports under `## Standards` and `## Spec` headings, verbatim or lightly cleaned. Do **not** merge or rerank findings, because the two axes are deliberately separate (see _Why two axes_).
+Present the two reports under `## Standards` and `## Spec` headings, verbatim or lightly cleaned. If a Quality Gates worker ran, append its separate `## Quality Gates` evidence report below them. Do **not** merge or rerank findings, because the two axes are deliberately separate (see _Why two axes_).
 
 End with a one-line summary: total findings per axis, and the worst issue _within each axis_ (if any). Don't pick a single winner across axes: that's the reranking the separation exists to prevent.
 
@@ -87,9 +102,3 @@ A change can pass one axis and fail the other:
 - Code that does exactly what the issue asked but breaks the project's conventions → **Spec pass, Standards fail.**
 
 Reporting them separately stops one axis from masking the other.
-
-## UB Mode review principles
-
-The Standards reviewer must read [the unchanged UB Mode source](../../../references/ub-mode/SKILL.original.md), especially **Then Make it Right**: **Fix Root Causes**, **Sequence work into verifiable units**, **Test Behavior, Not Implementation**, **Crapper**, **Dryer**, **Mutator**, and **Refactoring**. It should also check the architecture-related headings under **First Make it Work** against the changed code.
-
-Treat the original Crapper, Dryer, and Mutator instructions as the intended quality gates, but distinguish evidence from aspiration. Run configured tools when available and appropriate; report the result, or say when a tool was not run. Do not claim a threshold passed without a measurement. Honor existing review rules: repo standards take precedence, tooling-enforced findings are not duplicated, and heuristic findings remain judgement calls. Send any proposed extra refactoring or new test seam back to the owning implementation workflow rather than silently broadening scope.
