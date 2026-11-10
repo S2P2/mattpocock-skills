@@ -1,6 +1,11 @@
 ---
 name: codebase-design
 description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+metadata:
+  ub_mode_source: "https://github.com/unclebob/ub-mode"
+  ub_mode_commit: "3da62bf3fcfd2034de41f30d920d2739e566171f"
+  ub_mode_license: "MIT"
+  ub_mode_change_log: "docs/agents/ub-mode-integration.md"
 ---
 
 # Codebase Design
@@ -63,6 +68,34 @@ When designing an interface, ask:
 - **The deletion test.** Imagine deleting the module. If complexity vanishes, it was a pass-through. If complexity reappears across N callers, it was earning its keep.
 - **The interface is the test surface.** Callers and tests cross the same seam. If you want to test *past* the interface, the module is probably the wrong shape.
 - **One adapter means a hypothetical seam. Two adapters means a real one.** Don't introduce a seam unless something actually varies across it.
+
+### Redesign From First Principles
+
+* Do not bolt a new requirement onto the old design.
+* Ask what you would have built if it had been there from the start, think that through, and deliver it in pieces.
+
+### Model the Domain
+
+* Put the domain in a structure that makes the illegal states impossible.
+
+### Boundary Discipline
+
+* Check the data where it enters.
+* Inside, trust it.
+
+### Type System Discipline
+
+* Parse outside data once, where it comes in.
+* Do not silence the compiler.
+
+### Make Operations Idempotent
+
+* Running it twice, or running it after a crash halfway through, ends in the same state.
+
+### Separate Before Serializing Shared State
+
+* If they do not need the same mutable thing, give each its own.
+* If they do, allow one writer, and enforce that in the structure.
 
 ## Designing for testability
 
