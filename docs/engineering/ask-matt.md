@@ -4,7 +4,7 @@
 
 It recommends and stops. It does not grill, write a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), open a file or fire the skill it just named; what you get back is the next thing to type, and you type it. It is also a hand-written map of the skills in this repo rather than a scan of what you have installed, so it will not route you over your own skills or another author's.
 
-The router now also shows where the preserved [UB Mode principles](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md) apply across implementation, TDD, debugging, code review, and retrospective stages. No new invokable skill is added.
+The router now also shows where the preserved [UB Mode principles](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) apply across implementation, TDD, debugging, code review, and retrospective stages. No new invokable skill is added.
 
 ## When to reach for it
 
