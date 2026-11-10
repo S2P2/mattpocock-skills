@@ -33,19 +33,7 @@ The route most work travels. You have an idea and want it built.
 
 4. **`/retro`** closes the loop. After a build, and especially one that went sideways, it looks back over the session and suggests changes to the agent's **environment**, not the code: navigation pointers, automated checks, the coding standards `/code-review` enforces, steering files, tooling. Mechanical mistakes become deterministic checks; judgement calls become coding standards. The next build then starts from a better environment.
 
-### UB Mode principles across the flow
-
-The exact original UB Mode text, including every heading and bullet, is preserved at [references/ub-mode/SKILL.original.md](../../../references/ub-mode/SKILL.original.md). It is not a separate skill to invoke.
-
-- `implement` and each `implement-spec` implementer use **First Make it Work** and small, verifiable steps.
-- `tdd` incorporates the original **TDD** and **Test Behavior, Not Implementation** principles, while retaining Matt's seam-approval authority.
-- `diagnosing-bugs` uses **Fix Root Causes** and **Attack the Premise** after its reproduction loop.
-- `code-review` evaluates **Then Make it Right** and the original quality-gate headings.
-- `retro` considers **Practice** as follow-up and automation opportunities.
-
-When an original instruction conflicts with a flow's ownership, the flow wins: do not unconditionally push to main, create tests at unapproved seams, or override an integration-branch or worktree policy. The original source text remains unchanged, including those instructions, for auditability.
-
-## Context hygiene
+### Context hygiene
 
 Keep steps 1–3 in **one unbroken context window** (don't compact or clear until after `/to-tickets`) so the grilling, spec, and tickets all build on the same thinking. Each `/implement` then starts fresh, working from the ticket. Run `/retro` in the session it's looking back on, before you clear; after clearing, point it at that session's log instead.
 
@@ -106,4 +94,6 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume.
+
+**`/setup-code-quality-gates`** (optional, user-invoked): run once per target repository to configure Crapper, Dryer, Mutator, and CI. This creates `docs/agents/quality-gates.md`, which enables the optional Quality Gates worker in `/code-review`. Normal implementation and review never install these tools implicitly. Custom issue trackers also work.

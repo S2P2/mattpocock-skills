@@ -4,7 +4,7 @@
 
 It never reopens the plan. There is no interview, no clarifying round, no proposal of a different approach. Whatever was settled upstream is the input, and the skill's whole job is to turn that into a commit. That is what separates it from typing "build this" at a fresh [agent](https://www.aihero.dev/ai-coding-dictionary/agent), which often redesigns the work while it builds it.
 
-The skill also reads the preserved [UB Mode source](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) for its First Make it Work engineering principles. The source is unchanged; this workflow still owns testing handoff, review, and commits to the current branch.
+Selected original UB Mode [Build the Lever principles](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) now appear in `implement`. This does not change Matt's TDD or branch workflow.
 
 ## When to reach for it
 

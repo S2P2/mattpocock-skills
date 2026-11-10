@@ -36,9 +36,3 @@ When the shape of that interface is itself in question (how deep the module is, 
 - **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
 - **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.
-
-## UB Mode TDD principles
-
-Read **First Make it Work > TDD** and **Then Make it Right > Test Behavior, Not Implementation** from [the unchanged UB Mode source](../../../references/ub-mode/SKILL.original.md). Preserve those original instructions as principles alongside this skill's test-quality rules.
-
-This skill remains authoritative for pre-agreed public testing seams, vertical red-green cycles, and postponing structural refactoring until review. If a UB instruction would require tests at a seam not yet confirmed by the user, follow this skill's seam approval rule first.

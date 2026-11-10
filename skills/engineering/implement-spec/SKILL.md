@@ -40,9 +40,3 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
 
 9. Clean up all **implementer subagent** worktrees.
-
-## UB Mode for implementer subagents
-
-Every implementer subagent must read [the original UB Mode text](../../../references/ub-mode/SKILL.original.md) and apply **First Make it Work** and **Sequence work into verifiable units** when building its ticket. Inherit the original **Architecture** subsections and **Fix Root Causes** without changing their wording in the reference.
-
-For conflicts, this skill owns the integration branch, worktrees, ticket closure, merges, and the final review. The original **Commit and Push**, **Worktree Cleanup**, and **Keep a Log** sections do not override those rules. The `tdd` skill owns test seams and red-green execution. The `code-review` skill owns final quality evaluation.
