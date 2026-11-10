@@ -42,3 +42,9 @@ You have access to several files in the repo:
 - `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
 - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
 - Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
+
+## UB Mode practice and follow-up
+
+Read **Practice**, including **Keep a Log**, **Guard the Context Window**, **Worktree Cleanup**, and **Commit and Push**, from [the unchanged UB Mode source](../../../references/ub-mode/SKILL.original.md). Assess whether observed session failures suggest better logs, context handoffs, worktree cleanup, or commit evidence. Do not treat UB's instruction to push to the main line as a command; Git delivery remains the owning workflow's responsibility.
+
+When Crapper, Dryer, or Mutator checks are unavailable or repeated manual steps, consider recommending deterministic automation in the repository's lint, test, or CI workflow, in line with this skill's existing automated-check guidance.
