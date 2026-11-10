@@ -87,3 +87,9 @@ A change can pass one axis and fail the other:
 - Code that does exactly what the issue asked but breaks the project's conventions → **Spec pass, Standards fail.**
 
 Reporting them separately stops one axis from masking the other.
+
+## UB Mode review principles
+
+The Standards reviewer must read [the unchanged UB Mode source](../../../references/ub-mode/SKILL.original.md), especially **Then Make it Right**: **Fix Root Causes**, **Sequence work into verifiable units**, **Test Behavior, Not Implementation**, **Crapper**, **Dryer**, **Mutator**, and **Refactoring**. It should also check the architecture-related headings under **First Make it Work** against the changed code.
+
+Treat the original Crapper, Dryer, and Mutator instructions as the intended quality gates, but distinguish evidence from aspiration. Run configured tools when available and appropriate; report the result, or say when a tool was not run. Do not claim a threshold passed without a measurement. Honor existing review rules: repo standards take precedence, tooling-enforced findings are not duplicated, and heuristic findings remain judgement calls. Send any proposed extra refactoring or new test seam back to the owning implementation workflow rather than silently broadening scope.
