@@ -4,7 +4,7 @@
 
 It will not let the agent form a theory until a **tight** feedback loop exists: one named command, already run once, that goes red on *this* bug and green when it is fixed. Given a bug report, a coding agent by default reads code and guesses. This skill blocks that. If no red-capable command exists, there is no Phase 2. That single gate is what the skill is for. Once the loop exists, everything after it (bisection, hypothesis-testing, instrumentation) is mechanical.
 
-The skill also consults [UB Mode's original Fix Root Causes and Attack the Premise sections](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md) after establishing its red-capable reproduction loop.
+The skill also consults [UB Mode's original Fix Root Causes and Attack the Premise sections](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) after establishing its red-capable reproduction loop.
 
 ## When to reach for it
 
