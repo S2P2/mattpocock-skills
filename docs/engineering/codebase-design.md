@@ -4,6 +4,8 @@
 
 It is a reference, not a process. It runs no loop, produces no artifact, and never stops to ask you a question. Every other skill that touches design uses its vocabulary. On its own, it gives you the words and stops. Know this before you invoke it. If you point a [session](https://www.aihero.dev/ai-coding-dictionary/session) at a skill with no process and no stopping rule and say "go", the agent invents a process. The questions below show what that looks like.
 
+The existing design skill now includes selected original UB Mode [architecture and reliability principles](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) directly in `SKILL.md`.
+
 ## When to reach for it
 
 Type `/codebase-design`, or the agent reaches for it automatically when a design task fits.

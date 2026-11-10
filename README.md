@@ -104,6 +104,12 @@ In your agent, run it once per repo. It will:
 - Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
 - Ask you where you want to save any docs we create
 
+### Optional: quality gates
+
+Run `/setup-code-quality-gates` once in a target project to configure reproducible Crapper, Dryer, and Mutator checks. It pins tool versions, creates project commands and CI checks, and writes `docs/agents/quality-gates.md`. Only opted-in projects receive a Quality Gates worker during `/code-review`.
+
+Selected principles were adapted from [unclebob/ub-mode at commit `3da62bf3fcfd2034de41f30d920d2739e566171f`](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md) (MIT). The [integration change log](docs/agents/ub-mode-integration.md) records what was retained or excluded and how to update it.
+
 ### 3. Bam - you're ready to go.
 
 ## Why These Skills Exist

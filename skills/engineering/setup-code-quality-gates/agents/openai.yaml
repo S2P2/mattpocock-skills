@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Code Quality Gates"
+  short_description: "Configure optional Crapper, Dryer, Mutator checks"
+policy:
+  allow_implicit_invocation: false

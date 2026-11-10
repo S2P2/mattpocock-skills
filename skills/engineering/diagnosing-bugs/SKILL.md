@@ -1,6 +1,11 @@
 ---
 name: diagnosing-bugs
 description: Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
+metadata:
+  ub_mode_source: "https://github.com/unclebob/ub-mode"
+  ub_mode_commit: "3da62bf3fcfd2034de41f30d920d2739e566171f"
+  ub_mode_license: "MIT"
+  ub_mode_change_log: "docs/agents/ub-mode-integration.md"
 ---
 
 # Diagnosing Bugs
@@ -126,6 +131,12 @@ If a correct seam exists:
 3. Apply the fix.
 4. Watch it pass.
 5. Re-run the Phase 1 feedback loop against the original (un-minimised) scenario.
+
+### Attack the Premise
+
+Use this escalation only after two attempted fixes based on the same premise have failed the same reproduction gate:
+
+* When two fixes that share one premise fail the same gate, write that premise in one sentence and count which actors hold the imbalance.
 
 ## Phase 6: Cleanup
 

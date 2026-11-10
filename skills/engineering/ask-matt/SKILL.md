@@ -94,4 +94,6 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume.
+
+**`/setup-code-quality-gates`** (optional, user-invoked): run once per target repository to configure Crapper, Dryer, Mutator, and CI. This creates `docs/agents/quality-gates.md`, which enables the optional Quality Gates worker in `/code-review`. Normal implementation and review never install these tools implicitly. Custom issue trackers also work.
