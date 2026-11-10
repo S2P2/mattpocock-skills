@@ -4,7 +4,7 @@
 
 It writes no test at a seam you have not agreed to first. Before any test exists, it names the public boundaries it intends to test at and stops for your confirmation. Testing effort is finite, and this step spends it on the critical paths instead of on every edge case. `tdd` is also a **reference**, not a driver. It contains the rules of the loop, and something else (you, or [implement](https://aihero.dev/skills-implement)) runs the [session](https://www.aihero.dev/ai-coding-dictionary/session) that applies them.
 
-The skill consults the original [UB Mode TDD and behavior-test sections](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md), preserving their text without changing this skill's confirmed-seam rule.
+The skill consults the original [UB Mode TDD and behavior-test sections](https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md), preserving their text without changing this skill's confirmed-seam rule.
 
 ## When to reach for it
 
