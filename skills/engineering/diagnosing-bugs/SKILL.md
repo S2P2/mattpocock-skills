@@ -136,3 +136,7 @@ Required before declaring done:
 - [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
 - [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
 - [ ] The hypothesis that turned out correct is stated in the commit / PR message, so the next debugger learns
+
+## UB Mode root-cause discipline
+
+Read **Then Make it Right > Fix Root Causes** and **First Make it Work > Attack the Premise** in [the unchanged UB Mode source](../../../references/ub-mode/SKILL.original.md). Use those principles after this skill's required tight reproduction loop; UB Mode does not replace the loop or its phase gates.
