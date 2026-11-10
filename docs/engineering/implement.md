@@ -4,6 +4,8 @@
 
 It never reopens the plan. There is no interview, no clarifying round, no proposal of a different approach. Whatever was settled upstream is the input, and the skill's whole job is to turn that into a commit. That is what separates it from typing "build this" at a fresh [agent](https://www.aihero.dev/ai-coding-dictionary/agent), which often redesigns the work while it builds it.
 
+The skill also reads the preserved [UB Mode source](https://github.com/S2P2/mattpocock-skills/blob/main/references/ub-mode/SKILL.original.md) for its First Make it Work engineering principles. The source is unchanged; this workflow still owns testing handoff, review, and commits to the current branch.
+
 ## When to reach for it
 
 You invoke this by typing `/implement` yourself, and the agent won't reach for it on its own. It ships with `disable-model-invocation: true`, so no other skill can call it either. Wherever [ask-matt](https://aihero.dev/skills-ask-matt) or [to-tickets](https://aihero.dev/skills-to-tickets) says "then `/implement` per ticket", that is an instruction to you, not something the agent will do unprompted.
